@@ -106,6 +106,12 @@ namespace UsefullClassesDevelopment
             this._connection = new MySqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// An inner helper function which executes a function within the connection open & close.
+        /// </summary>
+        /// <typeparam name="T">The executable its return type</typeparam>
+        /// <param name="executable">A function which will be executed between the connection open & close.</param>
+        /// <returns>The executable function its return instance.</returns>
         private T PerformSqlAction<T>(Func<T> executable)
         {
             this._connection.Open();
