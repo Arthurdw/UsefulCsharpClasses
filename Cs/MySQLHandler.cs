@@ -53,7 +53,7 @@ namespace UsefullClassesDevelopment
         /// <returns>A proper MySQLClient which can be used in the <c>MySQLHandler</c></returns>
         /// <see cref="MySqlClient"/>
         /// <see cref="MySqlHandler"/>
-        public MySqlClient Create(string userName, string password, string database)
+        public static MySqlClient From(string userName, string password, string database)
             => new MySqlClient(userName, password, database, "127.0.0.1", "3306");
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace UsefullClassesDevelopment
         /// <returns>A proper MySQLClient which can be used in the <c>MySQLHandler</c></returns>
         /// <see cref="MySqlClient"/>
         /// <see cref="MySqlHandler"/>
-        public MySqlClient Create(string userName, string password, string database, string server)
+        public static MySqlClient From(string userName, string password, string database, string server)
             => new MySqlClient(userName, password, database, server, "3306");
     }
 
