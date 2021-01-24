@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace UsefullClassesDevelopment
@@ -24,14 +25,15 @@ namespace UsefullClassesDevelopment
         /// Convert an <c>Image</c> object to a collection of bytes.
         /// </summary>
         /// <param name="image">The image object that will be used as source of the bytes collection.</param>
+        /// <param name="format">[Optional] A the image format. (Required if its a bitmap)</param>
         /// <returns>The image as a bytes collection.</returns>
         /// <see cref="Image"/>
-        public static byte[] ImageToBytes(Image image)
+        public static byte[] ImageToBytes(Image image, ImageFormat format = null)
         {
             using (MemoryStream ms = new MemoryStream())
             {
                 // Save the image in the current MemoryStream.
-                image.Save(ms, image.RawFormat);
+                image.Save(ms, format ?? image.RawFormat);
                 return ms.ToArray();
             }
         }
